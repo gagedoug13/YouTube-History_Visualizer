@@ -1,8 +1,33 @@
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function Home() {
+  let fileReader;
+  let fileData = null;
+  const [watchHistory, setWatchHistory] = useState(null);
+
+  const handleFileChosen = (file) => { 
+    if (file.type != "application/json") {
+        alert("Please choose the json file from your watch history.")
+        file = null;
+        return;
+    } else {
+        fileReader = new FileReader();
+        fileReader.onloadend = handleFileRead;
+        console.log(fileReader.readAsText(file));
+    }
+    // console.log(file)
+  };
+
+const handleFileRead = (e) => {
+    const content = fileReader.result;
+    fileData = content;
+    setWatchHistory(fileData)
+};
+
+  // console.log(watchHistory)
   return (
     <div className={styles.homeDiv} >             
       <div className={styles.welcomeDiv}>
@@ -16,6 +41,7 @@ export default function Home() {
             accept='.json' 
             id="myFile" 
             name="filename"
+            onChange={e => handleFileChosen(e.target.files[0])}
         />
                 
         <h3 className={styles.or}>or</h3>
