@@ -1,12 +1,10 @@
 import React from 'react'
 export default function charts() {
-    
-    const watchHistory = JSON.parse(sessionStorage.getItem("watchHistory"))
-    
+
     return (
-        
         <div>
-            {watchHistory ? (<div>hi</div>) : (<div>NO GOOD</div>)}
+            {/* {props.watchHistory ? (<div>working</div>) : (<div>NO GOOD</div>)} */}
+            <h1>charts page</h1>
         </div>
     )
 }

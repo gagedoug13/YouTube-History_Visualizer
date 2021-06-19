@@ -15,7 +15,7 @@ export default function Home() {
     } else {
         fileReader = new FileReader();
         fileReader.onloadend = handleFileRead;
-        // console.log(fileReader.readAsText(file));
+        console.log(fileReader.readAsText(file));
     }
   };
 
@@ -51,7 +51,7 @@ export default function Home() {
                             pathname: "/charts",
                           }}
                         >
-                          <a>see data</a>
+                          <a><button>see data</button></a>
                         </Link> : null}
                 
         <h3 className={styles.or}>or</h3>
