@@ -1,10 +1,9 @@
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Home() {
   let fileReader;
-  let fileData = null;
   const [watchHistory, setWatchHistory] = useState(null);
 
   const handleFileChosen = (file) => { 
